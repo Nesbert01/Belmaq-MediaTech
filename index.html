@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Belmaq MediaTech — Creative Designs & Custom Prints</title>
+<meta name="description" content="Belmaq MediaTech — T-shirt printing, mug printing, vehicle branding, logo design and promotions." />
+<style>
+  :root{
+    --bg:#0b0b0c;
+    --surface:#121215;
+    --gold:#D4AF37;
+    --orange:#FF7A00;
+    --text:#eaeaf0;
+    --muted:#9aa0a6;
+  }
+  html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+  body{background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.45}
+  .container{max-width:1100px;margin:0 auto;padding:28px;}
+  header{position:sticky;top:0;z-index:40;padding:14px 0;transition:backdrop-filter .25s,background .25s}
+  .nav{-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .logo-mark{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--gold),var(--orange));box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .brand h1{margin:0;font-size:16px;line-height:1;font-weight:800}
+  .brand .sub{font-size:12px;opacity:.7;margin-top:2px}
+  nav a{color:rgba(255,255,255,.85);text-decoration:none;margin:0 8px;font-size:14px}
+  .cta{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;font-weight:700;background:linear-gradient(135deg,var(--orange),var(--gold));color:#000;text-decoration:none}
+  /* Hero */
+  .hero{padding:64px 0;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+  .hero h2{font-size:40px;margin:0;line-height:1.02}
+  .hero p{color:rgba(255,255,255,.75);max-width:44ch;margin-top:12px}
+  .buttons{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+  .ghost{padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.06);background:transparent;color:inherit;text-decoration:none}
+  .badge-row{margin-top:18px;display:flex;gap:18px;color:rgba(255,255,255,.75);font-size:14px}
+  /* Showcase card */
+  .card{border-radius:22px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);border:1px solid rgba(255,255,255,.06)}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .tile{display:flex;gap:10px;align-items:center;padding:8px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04)}
+  .mock{height:220px;border-radius:16px;overflow:hidden;position:relative;background:linear-gradient(135deg,#000,#111)}
+  .mock .center{text-align:center;position:absolute;inset:0;display:grid;place-items:center}
+  /* Sections */
+  section{padding:54px 0}
+  h3{margin:0;font-size:20px}
+  .grid{display:grid;gap:16px}
+  .services{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .service{padding:18px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);border:1px solid rgba(255,255,255,.06)}
+  .service .icon{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--orange),var(--gold))}
+  ul.points{margin:12px 0 0;padding-left:18px;color:rgba(255,255,255,.85)}
+  /* Portfolio */
+  .portfolio{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .pf-card{height:160px;border-radius:14px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.06);background:linear-gradient(135deg,#0f0f11,#0b0b0c)}
+  .pf-card .tag{position:absolute;left:12px;top:12px;font-size:12px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.12em}
+  .pf-card .title{position:absolute;left:12px;bottom:12px;font-weight:700}
+  /* Process */
+  .process{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  .proc{padding:18px;border-radius:16px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.01)}
+  /* Testimonials */
+  .testimonials{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .quote{padding:18px;border-radius:16px;border:1px solid rgba(255,255,255,.06);background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
+  /* Form and contact */
+  form{display:grid;gap:12px}
+  input,textarea,select{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:10px;border-radius:10px;color:var(--text);outline:none}
+  input:focus,textarea:focus,select:focus{box-shadow:0 0 0 4px rgba(212,175,55,.08);border-color:var(--gold)}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .file{font-size:13px;color:rgba(255,255,255,.9);padding:8px;border-radius:8px;border:0}
+  .submit-row{display:flex;align-items:center;gap:12px}
+  footer{padding:18px 0;color:rgba(255,255,255,.6);border-top:1px solid rgba(255,255,255,.04)}
+  /* Floating WhatsApp */
+  .fab{position:fixed;right:20px;bottom:18px;width:56px;height:56px;border-radius:999px;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),var(--orange));color:#000;box-shadow:0 12px 30px rgba(0,0,0,.4);z-index:60}
+  /* Responsive */
+  @media (max-width:880px){.hero{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr}.container{padding:18px}}
+  /* Simple animations */
+  .fade-up{opacity:0;transform:translateY(18px);animation:fadeUp .8s forwards}
+  @keyframes fadeUp{to{opacity:1;transform:none}}
+  .glow{box-shadow:0 6px 40px rgba(255,122,0,.08)}
+</style>
+</head>
+<body>
+<header id="top">
+  <div class="container nav">
+    <a class="brand" href="#home">
+      <div class="logo" style="text-align: left; padding: 10px;">
+          <img src="images/IMG-20250829-WA0002.jpg" alt="Company Logo" style="width: 200px; height: auto;">
+        
+        </div>
+      <div>
+        <h1>IKATI <span style="color:var(--orange)">Authentic</span><span style="color:var(--gold)">Collection</span></h1>
+        <h1>Belmaq <span style="color:var(--gold)">Media</span><span style="color:var(--orange)">Tech</span></h1>
+        <div class="sub">Creative • Custom • Bold</div>
+      </div>
+    </a>
+    <nav class="links" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#process">Process</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#quote">Get a Quote</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="cta" href="#quote">Start Your Project →</a>
+  </div>
+</header>
+
+<main>
+  <section id="home" class="container hero">
+    <div>
+      <h2 class="fade-up">Creative Designs. <span style="color:var(--gold)">Custom Prints</span>. <span style="color:var(--orange)">Bold Branding</span>.</h2>
+      <p class="fade-up" style="animation-delay:.12s">Belmaq MediaTech specializes in T-shirt & mug printing, vehicle branding, logo design, and product promotions that turn heads and win hearts.</p>
+      <div class="buttons fade-up" style="animation-delay:.24s">
+        <a class="cta" href="#quote">Get a Quote</a>
+        <a class="ghost" href="#portfolio">See our work</a>
+      </div>
+      <div class="badge-row fade-up" style="animation-delay:.36s">
+        <div>✔ Premium Materials</div>
+        <div>✔ Fast Turnaround</div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="tiles">
+          <div class="tile"><div class="icon">👕</div><div><strong>T‑Shirts</strong></div></div>
+          <div class="tile"><div class="icon">☕</div><div><strong>Mugs</strong></div></div>
+          <div class="tile"><div class="icon">🚚</div><div><strong>Branding</strong></div></div>
+          <div class="tile"><div class="icon">✏️</div><div><strong>Logos</strong></div></div>
+          <div class="tile"><div class="icon">🎨</div><div><strong>Design</strong></div></div>
+          <div class="tile"><div class="icon">🖼️</div><div><strong>Promos</strong></div></div>
+        </div>
+        <div style="height:18px"></div>
+        <div class="mock glow">
+          <div class="center">
+            <div style="font-size:12px;opacity:.75;letter-spacing:.18em"></div>
+                     <img src="images/IMG-20250828-WA0108.jpg" alt="Company Logo" style="width: 300px; height: auto;">
+            <div style="font-size:20px;font-weight:700;margin-top:6px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="container">
+    <div style="display:flex;align-items:baseline;gap:12px;">
+      <div style="color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.12em">What we do</div>
+      <h3 style="margin-left:6px">Services that <span style="color:var(--gold)">shine</span> and <span style="color:var(--orange)">sell</span></h3>
+    </div>
+    <p style="color:rgba(255,255,255,.7);max-width:60ch;margin-top:8px">End‑to‑end creative, from concept to print and installation.</p>
+
+    <div class="grid services" style="margin-top:18px">
+      <div class="service fade-up">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="icon">👕</div>
+          <div><strong>T‑Shirt Printing</strong></div>
+        </div>
+        <p style="margin-top:8px;color:rgba(255,255,255,.8)">DTF, screen printing & vinyl — durable, vibrant, and wash‑resistant.</p>
+        <ul class="points">
+          <li>Bulk & one‑offs</li>
+          <li>Premium garments</li>
+          <li>Size‑inclusive</li>
+        </ul>
+      </div>
+
+      <div class="service fade-up" style="animation-delay:.06s">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="icon">☕</div>
+          <div><strong>Mug & Cup Customisation</strong></div>
+        </div>
+        <p style="margin-top:8px;color:rgba(255,255,255,.8)">Sublimation mugs and drinkware with crisp, photo‑quality finishes.</p>
+        <ul class="points">
+          <li>Corporate gifts</li>
+          <li>Dishwasher‑friendly</li>
+          <li>Photo & logo</li>
+        </ul>
+      </div>
+
+      <div class="service fade-up" style="animation-delay:.12s">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="icon">🚚</div>
+          <div><strong>Vehicle Branding</strong></div>
+        </div>
+        <p style="margin-top:8px;color:rgba(255,255,255,.8)">Full/partial wraps, decals, and magnets to take your brand on the road.</p>
+        <ul class="points">
+          <li>UV‑resistant</li>
+          <li>Pro installation</li>
+          <li>Design + print + apply</li>
+        </ul>
+      </div>
+
+      <div class="service fade-up" style="animation-delay:.18s">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="icon">✏️</div>
+          <div><strong>Logo & Visual Identity</strong></div>
+        </div>
+        <p style="margin-top:8px;color:rgba(255,255,255,.8)">Memorable logos with purposeful typography and color psychology.</p>
+        <ul class="points">
+          <li>3 concepts</li>
+          <li>Brand guide</li>
+          <li>Social kits</li>
+        </ul>
+      </div>
+
+      <div class="service fade-up" style="animation-delay:.24s">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="icon">🖼️</div>
+          <div><strong>Product Promotions</strong></div>
+        </div>
+        <p style="margin-top:8px;color:rgba(255,255,255,.8)">Posters, flyers, banners & digital promo packs that sell your story.</p>
+        <ul class="points">
+          <li>Print & digital</li>
+          <li>Fast turnarounds</li>
+          <li>A/B tested layouts</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="container">
+    <div style="display:flex;align-items:baseline;gap:12px;">
+      <div style="color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.12em">Our work</div>
+      <h3 style="margin-left:6px">A showcase of <span style="color:var(--gold)">craft</span> & <span style="color:var(--orange)">color</span></h3>
+    </div>
+    <p style="color:rgba(255,255,255,.7);max-width:60ch;margin-top:8px">"Turning ideas into powerful brand identities."</p>
+
+    <div class="grid portfolio" style="margin-top:18px">
+      <div class="pf-card fade-up"><div class="tag">T‑Shirts/Jerseys</div>
+           <img src="images/T-shirt.3-removebg-preview.png" alt="T-shirt Sample"
+                style="width: 200px; height: auto; border-radius: 10px; margin-top: 40px;">
+        </div>
+            
+      <div class="pf-card fade-up" style="animation-delay:.06s"><div class="tag">Mugs</div>
+          <img src="images/IMG_20250829_111414-removebg-preview.png" alt="Mug Sample"
+                style="width: 200px; height: auto; border-radius: 10px; margin-top: 40px;">
+    </div>
+      <div class="pf-card fade-up" style="animation-delay:.12s"><div class="tag">Branding</div>
+          <img src="images/Portfolio.6-removebg-preview.png" alt="Branding Sample"
+                style="width: 200px; height: auto; border-radius: 10px; margin-top: 40px;">
+    </div>
+      <div class="pf-card fade-up" style="animation-delay:.18s"><div class="tag">Logos</div>
+          <img src="images/IMG-20250829-WA0002.jpg" alt="Logo Sample"
+                style="width: 200px; height: auto; border-radius: 10px; margin-top: 40px;">
+        </div>
+      <div class="pf-card fade-up" style="animation-delay:.24s"><div class="tag">Promos</div>
+          <img src="images/Promo.1.jpg" alt="Promo Sample"
+                style="width: 200px; height: auto; border-radius: 10px; margin-top: 40px;">
+        </div>
+      <div class="pf-card fade-up" style="animation-delay:.30s"><div class="tag">Vehicle Branding</div>
+          <img src="images/Untitled%20design.2.png" alt="Vehicle Sample"
+                style="width: 200px; height: auto; border-radius: 10px; margin-top: 40px;">
+        </div>
+      <div class="pf-card fade-up" style="animation-delay:.30s"><div class="tag">Business Cards</div>
+          <img src="images/IMG-20250828-WA0097-removebg-preview.png" alt="Cards Sample"
+                style="width: 200px; height: auto; border-radius: 10px; margin-top: 40px;">
+        </div>
+    </div>
+  </section>
+
+  <section id="process" class="container">
+    <div style="display:flex;align-items:baseline;gap:12px;">
+      <div style="color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.12em">How we work</div>
+      <h3 style="margin-left:6px">Our <span style="color:var(--gold)">gold‑standard</span> process</h3>
+    </div>
+
+    <div class="grid process" style="margin-top:18px">
+      <div class="proc fade-up"><strong>Brief</strong><div style="color:rgba(255,255,255,.8);margin-top:6px">We learn your goals, audience and style.</div></div>
+      <div class="proc fade-up" style="animation-delay:.06s"><strong>Design</strong><div style="color:rgba(255,255,255,.8);margin-top:6px">Concepts, iterations, and feedback loops.</div></div>
+      <div class="proc fade-up" style="animation-delay:.12s"><strong>Proof</strong><div style="color:rgba(255,255,255,.8);margin-top:6px">Mockups for approval before print.</div></div>
+      <div class="proc fade-up" style="animation-delay:.18s"><strong>Print & Install</strong><div style="color:rgba(255,255,255,.8);margin-top:6px">Quality materials, careful handling.</div></div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="container">
+    <div style="display:flex;align-items:baseline;gap:12px;">
+      <div style="color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.12em">Social proof</div>
+      <h3 style="margin-left:6px">Clients who love the finish</h3>
+    </div>
+    <div class="grid testimonials" style="margin-top:18px">
+      <div class="quote fade-up"><div style="opacity:.8">★★★★★</div><p style="margin-top:8px">“Belmaq transformed our delivery vans. We saw an immediate uptick in enquiries!”</p><div style="margin-top:8px;opacity:.75">— Thabo M., Retail Owner</div></div>
+      <div class="quote fade-up" style="animation-delay:.06s"><div style="opacity:.8">★★★★★</div><p style="margin-top:8px">“Fast, friendly, and flawless prints. The T‑shirts made our crew look premium.”</p><div style="margin-top:8px;opacity:.75">— Naledi P., Event Planner</div></div>
+      <div class="quote fade-up" style="animation-delay:.12s"><div style="opacity:.8">★★★★★</div><p style="margin-top:8px">“Our new logo is clean and memorable. Exactly what we needed.”</p><div style="margin-top:8px;opacity:.75">— Michael K., Startup Founder</div></div>
+    </div>
+  </section>
+
+  <section id="quote" class="container">
+    <div style="display:flex;align-items:baseline;gap:12px;">
+      <div style="color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.12em">Get pricing</div>
+      <h3 style="margin-left:6px">Request a custom quote</h3>
+    </div>
+    <p style="color:rgba(255,255,255,.7);max-width:60ch;margin-top:8px">Tell us what you need. Upload your logo or reference, and we’ll reply with options.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px">
+      <form id="quoteForm" class="card" action="https://formspree.io/f/xgvlpwyw" method="POST" enctype="multipart/form-data">
+        <div class="form-grid">
+          <div><label class="muted">Name</label><input id="name" required placeholder="Your name"></div>
+          <div><label class="muted">Email</label><input id="email" type="email" required placeholder="email@domain.com"></div>
+          <div style="grid-column:1/3"><label class="muted">Phone / WhatsApp</label><input id="phone" placeholder="+27 7x xxx xxxx"></div>
+          <div style="grid-column:1/3"><label class="muted">Service Needed</label>
+            <select id="service">
+              <option>T‑Shirt Printing</option>
+              <option>Mug/Cup Printing</option>
+              <option>Vehicle Branding</option>
+              <option>Logo Design</option>
+              <option>Product Promotions</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div style="grid-column:1/3"><label class="muted">Project Details</label><textarea id="details" rows="4" placeholder="Quantity, sizes, colors, deadlines…"></textarea></div>
+          <div style="grid-column:1/3"><label class="muted">Upload Logo / Reference (optional)</label><input id="file" class="file" type="file"></div>
+        </div>
+        <div class="submit-row" style="margin-top:10px">
+          <button class="cta" id="submitBtn">Submit Request</button>
+          <div id="formMsg" style="color:var(--muted);font-size:13px">We reply within 1 business day.</div>
+        </div>
+      </form>
+
+      <div class="card" style="height:100%">
+        <h4 style="margin-top:0">Why choose Belmaq?</h4>
+        <ul style="margin-top:12px;color:rgba(255,255,255,.9);line-height:1.6">
+          <li>✔ Top‑tier inks and media for lasting color.</li>
+          <li>✔ In‑house design team that sweats the details.</li>
+          <li>✔ Transparent pricing. No surprises.</li>
+          <li>✔ Fast turnaround and friendly support.</li>
+        </ul>
+        <div style="margin-top:16px;padding:12px;border-radius:10px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.03)">
+          <div style="font-size:13px;color:rgba(255,255,255,.75)">Prefer WhatsApp?</div>
+          <a class="cta" href="https://wa.me/message/UASNVRWR3KP3L1" style="display:inline-block;margin-top:10px;text-decoration:none">Chat to us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="container">
+    <div style="display:flex;align-items:baseline;gap:12px;">
+      <div style="color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.12em">Say hello</div>
+      <h3 style="margin-left:6px">Contact & Location</h3>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px">
+      <div class="card"><div style="color:var(--muted)">Email</div><a href="mailto:belmaqmediatech@mail.com" style="display:block;margin-top:8px;color:inherit;text-decoration:none">belmaqmediatech@mail.com</a></div>
+      <div class="card"><div style="color:var(--muted)">Phone / WhatsApp</div><a href="https://wa.me/message/UASNVRWR3KP3L1" style="display:block;margin-top:8px;color:inherit;text-decoration:none">+27 63 985 2015</a></div>
+      <div class="card"><div style="color:var(--muted)">Location</div><div style="margin-top:8px">64 Elkie Drive Wilro Park Roodepoort</div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="container">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+    <div>© {YEAR} Belmaq MediaTech. All rights reserved.</div>
+             <img src="images/IMG-20250828-WA0108.jpg" alt="Company Logo" style="width: 100px; height: auto;">
+             <img src="images/IMG-20250829-WA0002.jpg" alt="Company Logo" style="width: 100px; height: auto;">
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/message/UASNVRWR3KP3L1" aria-label="WhatsApp">💬</a>
+
+<script>
+  // Replace YEAR
+  document.body.innerHTML = document.body.innerHTML.replace('{YEAR}', new Date().getFullYear());
+
+  // Smooth anchor scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',function(e){
+      const id = this.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(el){
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
+  });
+
+  // Simple nav background on scroll
+  const header = document.querySelector('header');
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>6){ header.style.background='rgba(0,0,0,.55)'; header.style.borderBottom='1px solid rgba(255,255,255,.04)'; }
+    else { header.style.background='transparent'; header.style.borderBottom='none'; }
+  });
+
+document.getElementById("quoteForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const formMsg = document.getElementById("formMsg");
+
+  formMsg.style.color = "gray";
+  formMsg.textContent = "Sending...";
+
+  try {
+    let response = await fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      form.reset();
+      formMsg.style.color = "green";
+      formMsg.textContent = "✅ Request sent! We'll get back to you soon.";
+    } else {
+      formMsg.style.color = "red";
+      formMsg.textContent = "❌ Something went wrong. Please try again.";
+    }
+  } catch (err) {
+    formMsg.style.color = "red";
+    formMsg.textContent = "⚠️ Network error. Please try later.";
+  }
+});
+    
+    
+</script>
+</body>
+</html>
